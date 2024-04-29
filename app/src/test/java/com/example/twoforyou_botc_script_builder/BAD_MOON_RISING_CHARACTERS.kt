@@ -1,10 +1,9 @@
 package com.example.twoforyou_botc_script_builder
 
-import com.example.twoforyou_botc_script_builder.TROUBLE_BREWING_CHARACTERS.Companion.troubleBrewingCharacterList
 import com.example.twoforyou_botc_script_builder.domain.enum.Character_Type
 import com.google.firebase.Firebase
 import com.google.firebase.database.database
-import com.example.twoforyou_botc_script_builder.domain.model.Character
+import com.example.twoforyou_botc_script_builder.data.model.Character
 
 class BAD_MOON_RISING_CHARACTERS {
 

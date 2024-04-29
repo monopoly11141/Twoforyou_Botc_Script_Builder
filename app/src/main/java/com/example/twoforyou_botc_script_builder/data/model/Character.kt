@@ -1,4 +1,4 @@
-package com.example.twoforyou_botc_script_builder.domain.model
+package com.example.twoforyou_botc_script_builder.data.model
 
 import com.example.twoforyou_botc_script_builder.domain.enum.Character_Type
 

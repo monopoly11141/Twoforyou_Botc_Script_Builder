@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.googleServices)
 
     id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -62,7 +63,11 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.firebase.firestore.ktx)
     testImplementation(libs.junit)
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
@@ -74,5 +79,19 @@ dependencies {
     implementation(platform(libs.firebase.bom))
     //firebase realtime database
     implementation(platform(libs.firebase.bom.v3231))
-    implementation("com.google.firebase:firebase-database-ktx")
+    implementation(libs.firebase.database.ktx)
+
+    //hilt
+    implementation(libs.androidx.hilt.navigation.fragment)
+    implementation(libs.androidx.hilt.work)
+    kapt(libs.androidx.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+    implementation(libs.androidx.work.runtime.ktx)
+
+    //mockito
+    testImplementation(libs.mockito.kotlin)
+    //mockk
+    testImplementation(libs.mockk)
 }

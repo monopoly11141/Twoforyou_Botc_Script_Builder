@@ -1,4 +1,4 @@
-package com.example.twoforyou_botc_script_builder
+package com.example.twoforyou_botc_script_builder.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     //TROUBLE_BREWING_CHARACTERS.addTroubleBrewingCharactersToDatabase()
                     //BAD_MOON_RISING_CHARACTERS.addBadMoonRisingCharactersToDatabase()
-                    SECTS_AND_VIOLETS_CHARACTERS.addSectsAndVioletsCharactersToDatabase()
+                    //SECTS_AND_VIOLETS_CHARACTERS.addSectsAndVioletsCharactersToDatabase()
                 }
             }
         }
