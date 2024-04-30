@@ -1,8 +1,8 @@
 package com.example.twoforyou_botc_script_builder.data.script_list
 
-import androidx.compose.runtime.remember
-import com.example.twoforyou_botc_script_builder.data.model.Character
-import com.example.twoforyou_botc_script_builder.data.remote.FirebaseCharacterDatabase
+import com.example.twoforyou_botc_script_builder.data.db.remote.FirebaseCharacterDatabase
+import com.example.twoforyou_botc_script_builder.data.model.Script
+import com.example.twoforyou_botc_script_builder.data.model.helper.Script_General_Info
 import com.example.twoforyou_botc_script_builder.domain.script_list.ScriptListRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,14 +12,48 @@ import javax.inject.Inject
 class ScriptListRepositoryImpl @Inject constructor(
     private val firebaseCharacterDatabase: FirebaseCharacterDatabase
 ) : ScriptListRepository {
-    var _allCharacters = MutableStateFlow<List<Character>>(emptyList())
-    val allCharacters = _allCharacters.asStateFlow()
 
-    init {
-        _allCharacters.value = getAllCharactersFromFirebase()
+
+    private val _displayingScript = MutableStateFlow(Script())
+    override val displayingScript: StateFlow<Script>
+        get() = _displayingScript.asStateFlow()
+
+    private val _scriptList = MutableStateFlow<List<Script>>(emptyList())
+    override val scriptList = _scriptList.asStateFlow()
+
+    override fun jsonStringToScript(jsonString: String): Script {
+        val modifiedJsonString = modifyJsonString(jsonString)
+
+        val modifiedJsonStringArray = modifiedJsonString.split(",")
+        val scriptGeneralInfo = Script_General_Info(
+            modifiedJsonStringArray[0].split(":")[1].trim(),
+            modifiedJsonStringArray[1].split(":")[1].trim(),
+            modifiedJsonStringArray[2].split(":")[1].trim(),
+        )
+
+        val characterMutableList = mutableListOf<String>()
+
+        for (i in 3 until modifiedJsonStringArray.size) {
+            characterMutableList.add(modifiedJsonStringArray[i].trim())
+        }
+
+        val script = Script(scriptGeneralInfo, characterMutableList)
+
+        return script
+
     }
-    override fun getAllCharactersFromFirebase(): List<Character> {
-        return firebaseCharacterDatabase.getAllCharacters()
+
+    private fun modifyJsonString(jsonString: String): String {
+        var rawStringValue = jsonString
+        rawStringValue = rawStringValue.replace("[", "")
+        rawStringValue = rawStringValue.replace("]", "")
+        rawStringValue = rawStringValue.replace("{", "")
+        rawStringValue = rawStringValue.replace("}", "")
+        rawStringValue = rawStringValue.replace(" ", "")
+        rawStringValue = rawStringValue.replace("\"", "")
+
+        return rawStringValue
     }
+
 
 }

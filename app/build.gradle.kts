@@ -94,4 +94,6 @@ dependencies {
     testImplementation(libs.mockito.kotlin)
     //mockk
     testImplementation(libs.mockk)
+    //gson
+    implementation(libs.gson)
 }

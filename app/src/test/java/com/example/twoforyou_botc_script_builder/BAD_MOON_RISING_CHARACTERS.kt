@@ -1,6 +1,6 @@
 package com.example.twoforyou_botc_script_builder
 
-import com.example.twoforyou_botc_script_builder.domain.enum.Character_Type
+import com.example.twoforyou_botc_script_builder.data.model.helper.Character_Type
 import com.google.firebase.Firebase
 import com.google.firebase.database.database
 import com.example.twoforyou_botc_script_builder.data.model.Character

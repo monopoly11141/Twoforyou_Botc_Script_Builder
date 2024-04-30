@@ -2,6 +2,7 @@
 agp = "8.3.2"
 firebaseBom = "32.8.1"
 firebaseBomVersion = "32.8.1"
+gson = "2.10.1"
 hiltAndroid = "2.49"
 hiltNavigationFragment = "1.2.0"
 kotlin = "1.9.0"
@@ -30,6 +31,7 @@ androidx-work-runtime-ktx = { module = "androidx.work:work-runtime-ktx", version
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-bom-v3231 = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBomVersion" }
 firebase-database-ktx = { module = "com.google.firebase:firebase-database-ktx" }
+gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
 hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
