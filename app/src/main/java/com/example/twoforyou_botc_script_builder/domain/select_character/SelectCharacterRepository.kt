@@ -6,4 +6,5 @@ import kotlinx.coroutines.flow.StateFlow
 interface SelectCharacterRepository {
     //all the possible characters in var.edition
     val allCharacters: StateFlow<List<Character>>
+
 }

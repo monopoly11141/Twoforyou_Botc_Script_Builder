@@ -96,4 +96,9 @@ dependencies {
     testImplementation(libs.mockk)
     //gson
     implementation(libs.gson)
+
+    implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.runtime)
+    annotationProcessor(libs.androidx.room.compiler.v260)
 }
