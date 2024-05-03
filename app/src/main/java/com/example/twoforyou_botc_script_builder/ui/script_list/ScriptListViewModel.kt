@@ -18,7 +18,7 @@ class ScriptListViewModel @Inject constructor(
     private val repository: ScriptListRepository
 ) : ViewModel() {
 
-    private lateinit var script: Script
+    private lateinit var script: Script ;
 
     private val _state = MutableStateFlow(ScriptListUiState())
     val state = combine(

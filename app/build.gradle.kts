@@ -101,4 +101,6 @@ dependencies {
     kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.room.runtime)
     annotationProcessor(libs.androidx.room.compiler.v260)
+
+    implementation(libs.material3)
 }

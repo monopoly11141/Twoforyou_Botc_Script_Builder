@@ -68,7 +68,7 @@ class ScriptListRepositoryImpl @Inject constructor(
         rawStringValue = rawStringValue.replace("]", "")
         rawStringValue = rawStringValue.replace("{", "")
         rawStringValue = rawStringValue.replace("}", "")
-        rawStringValue = rawStringValue.replace(" ", "")
+        //rawStringValue = rawStringValue.replace(" ", "")
         rawStringValue = rawStringValue.replace("\"", "")
 
         return rawStringValue

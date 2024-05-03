@@ -16,7 +16,7 @@ interface ScriptDao {
     @Insert()
     suspend fun insertScript(script: Script)
 
-    @Delete
+    @Delete()
     suspend fun deleteScript(script: Script)
 
     @Query("DELETE FROM script_database")
