@@ -5,8 +5,10 @@ import androidx.room.Room
 import com.example.twoforyou_botc_script_builder.data.db.local.ScriptDao
 import com.example.twoforyou_botc_script_builder.data.db.local.ScriptDb
 import com.example.twoforyou_botc_script_builder.data.db.remote.FirebaseCharacterDatabase
+import com.example.twoforyou_botc_script_builder.data.script_display.ScriptDisplayRepositoryImpl
 import com.example.twoforyou_botc_script_builder.data.script_list.ScriptListRepositoryImpl
 import com.example.twoforyou_botc_script_builder.data.select_character.SelectCharacterRepositoryImpl
+import com.example.twoforyou_botc_script_builder.domain.script_display.ScriptDisplayRepository
 import com.example.twoforyou_botc_script_builder.domain.script_list.ScriptListRepository
 import com.example.twoforyou_botc_script_builder.domain.select_character.SelectCharacterRepository
 import dagger.Module
@@ -40,23 +42,30 @@ class AppModule {
     @Provides
     @Singleton
     fun providesScriptListRepository(
-        firebaseCharacterDatabase: FirebaseCharacterDatabase,
-        scriptDao: ScriptDao
+        scriptDao: ScriptDao,
+        firebaseCharacterDatabase: FirebaseCharacterDatabase
     ): ScriptListRepository {
         return ScriptListRepositoryImpl(
-            firebaseCharacterDatabase,
+            scriptDao,
+            firebaseCharacterDatabase
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun providesScriptDisplayRepository(
+        scriptDao: ScriptDao
+    ): ScriptDisplayRepository {
+        return ScriptDisplayRepositoryImpl(
             scriptDao
         )
     }
 
     @Provides
     @Singleton
-    fun providesSelectCharacterRepository() : SelectCharacterRepository {
+    fun providesSelectCharacterRepository(): SelectCharacterRepository {
         return SelectCharacterRepositoryImpl(providesFirebaseCharacterDatabase())
     }
-
-
-
 
 
 }

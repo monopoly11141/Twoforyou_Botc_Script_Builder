@@ -21,4 +21,7 @@ interface ScriptDao {
 
     @Query("DELETE FROM script_database")
     suspend fun deleteAllScript()
+
+    @Query("SELECT * FROM script_database WHERE id = :id LIMIT 1")
+    suspend fun getScriptById(id: Int): Script
 }

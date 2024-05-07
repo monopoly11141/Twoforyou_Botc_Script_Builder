@@ -1,6 +1,7 @@
 package com.example.twoforyou_botc_script_builder.data.model.helper
 
 import androidx.room.ColumnInfo
+import kotlinx.parcelize.RawValue
 
 data class Script_General_Info (
     @ColumnInfo(name = "script_general_info_id")

@@ -9,3 +9,15 @@ data class Character(
     var isFormatChangingRole: Boolean = false,
     var imageUrl : String = ""
 )
+
+fun Character.getEnglishName() : String {
+    return this.name.filter {
+        "^[A-Za-z]*$".toRegex().containsMatchIn(it.toString())
+    }
+}
+
+fun Character.getKoreanName() : String {
+    return this.name.filter {
+        "^[ㄱ-ㅎ가-힣]*$".toRegex().containsMatchIn(it.toString())
+    }.replace("_", " ")
+}
