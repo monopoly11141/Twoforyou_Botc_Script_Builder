@@ -57,13 +57,13 @@ class ScriptListRepositoryImpl @Inject constructor(
 
     override fun jsonStringToScriptFromAzureWebsite(jsonString: String, scriptGeneralInfo: Script_General_Info): Script {
         val modifiedJsonString = modifyJsonStringFromAzureWebsite(jsonString)
-        val modifiedJsonStringArray = modifiedJsonString.split(",")
+        val modifiedJsonStringArray = modifiedJsonString.split(", ")
 
         val characterMutableList = mutableListOf<String>()
         val charactersObjectList = mutableListOf<Character>()
 
         for (element in modifiedJsonStringArray) {
-            val elementTrimmed = element.trim()
+            val elementTrimmed = element.replace("_", "").trim()
             Log.d("TAG", "jsonStringToScriptFromAzureWebsite: $elementTrimmed")
             characterMutableList.add(elementTrimmed)
             charactersObjectList.add(getCharacterByName(elementTrimmed)!!)

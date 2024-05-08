@@ -51,12 +51,14 @@ fun ScriptListScreen(
             .fillMaxSize()
     ) {
         LazyColumn(
-
+            modifier = Modifier
+                .weight(1f)
+                .padding(4.dp)
         ) {
             items(state.scriptList) { script ->
-                Text(
-                    script.toString()
-                )
+//                Text(
+//                    script.toString()
+//                )
 
                 ScriptItem(
                     script,
@@ -64,11 +66,11 @@ fun ScriptListScreen(
                     { navController.navigate("${Screen.ScriptDisplayScreen.route}/${script.id}") }
                 )
 
-                HorizontalDivider(color = Color.Blue)
+                HorizontalDivider(color = Color.Black)
             }
 
         }
-        Spacer(modifier = Modifier.weight(1f))
+        Spacer(modifier = Modifier)
 
 
 

@@ -104,4 +104,6 @@ dependencies {
     annotationProcessor(libs.androidx.room.compiler.v260)
 
     implementation(libs.material3)
+
+    implementation(libs.coil.compose)
 }
