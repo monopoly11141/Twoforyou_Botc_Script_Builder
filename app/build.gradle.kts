@@ -106,4 +106,11 @@ dependencies {
     implementation(libs.material3)
 
     implementation(libs.coil.compose)
+
+    implementation(libs.glide)
+    annotationProcessor(libs.compiler)
+
+    implementation(libs.coil.compose.v240)
+
+    implementation(libs.itext7.core)
 }

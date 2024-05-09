@@ -9,13 +9,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 
 @Composable
-fun AutosizeText(
+fun AutoSizeText(
+    modifier : Modifier = Modifier,
     text : String,
     maxLines : Int = 1,
-    modifier : Modifier = Modifier
 ) {
 
     var multiplier by remember { mutableStateOf(1f) }
+
+    val CONSTANT_MULTIPLIER = 0.98f
 
     Text(
         text = text,
@@ -26,7 +28,7 @@ fun AutosizeText(
         ),
         onTextLayout = {
             if (it.hasVisualOverflow) {
-                multiplier *= 0.99f // you can tune this constant 
+                multiplier *= CONSTANT_MULTIPLIER // you can tune this constant
             }
         },
         modifier = modifier

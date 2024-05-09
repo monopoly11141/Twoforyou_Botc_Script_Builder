@@ -1,6 +1,5 @@
 package com.example.twoforyou_botc_script_builder.ui.script_list.composable
 
-import android.widget.Toast
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -47,7 +46,6 @@ fun ScriptItem(
             .fillMaxWidth()
             .clickable {
                 onClickItem()
-                Toast.makeText(context, "클릭", Toast.LENGTH_SHORT).show()
             }
     ) {
         Row(

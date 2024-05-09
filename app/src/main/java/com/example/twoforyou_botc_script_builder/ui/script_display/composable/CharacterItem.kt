@@ -1,6 +1,6 @@
 package com.example.twoforyou_botc_script_builder.ui.script_display.composable
 
-import AutosizeText
+import AutoSizeText
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -45,10 +45,10 @@ fun CharacterItem(
                         .fillMaxSize(0.5f)
                 )
 
-                AutosizeText(
+                AutoSizeText(
                     text = character.getKoreanName()
                 )
-                AutosizeText(
+                AutoSizeText(
                     text = character.getEnglishName()
                 )
 
@@ -62,7 +62,7 @@ fun CharacterItem(
                 .weight(0.75f)
         ) {
 
-            AutosizeText(
+            AutoSizeText(
                 text = character.ability,
                 maxLines = 5
             )

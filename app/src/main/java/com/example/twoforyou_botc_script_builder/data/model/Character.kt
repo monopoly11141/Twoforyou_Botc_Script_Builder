@@ -13,11 +13,11 @@ data class Character(
 fun Character.getEnglishName() : String {
     return this.name.filter {
         "^[A-Za-z]*$".toRegex().containsMatchIn(it.toString())
-    }
+    }.replace("_", " ").trim()
 }
 
 fun Character.getKoreanName() : String {
     return this.name.filter {
         "^[ㄱ-ㅎ가-힣]*$".toRegex().containsMatchIn(it.toString())
-    }.replace("_", " ")
+    }.replace("_", " ").trim()
 }
