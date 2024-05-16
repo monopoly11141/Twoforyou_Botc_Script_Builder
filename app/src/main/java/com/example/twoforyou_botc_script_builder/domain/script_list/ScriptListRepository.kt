@@ -1,6 +1,7 @@
 package com.example.twoforyou_botc_script_builder.domain.script_list
 
 import com.example.twoforyou_botc_script_builder.data.model.Character
+import com.example.twoforyou_botc_script_builder.data.model.FabledCharacter
 import com.example.twoforyou_botc_script_builder.data.model.Script
 import com.example.twoforyou_botc_script_builder.data.model.helper.Script_General_Info
 import kotlinx.coroutines.flow.Flow
@@ -25,4 +26,6 @@ interface ScriptListRepository {
     suspend fun deleteAllScript()
 
     fun getCharacterByName(name: String) : Character?
+
+    fun getFabledCharacterByName(name: String) : FabledCharacter?
 }

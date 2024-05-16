@@ -56,9 +56,6 @@ fun ScriptListScreen(
                 .padding(4.dp)
         ) {
             items(state.scriptList) { script ->
-//                Text(
-//                    script.toString()
-//                )
 
                 ScriptItem(
                     script,

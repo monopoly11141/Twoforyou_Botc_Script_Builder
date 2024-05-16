@@ -13,5 +13,6 @@ data class Script(
     @Embedded
     val scriptGeneralInfo: Script_General_Info? = null,
     val charactersList: MutableList<String> = mutableListOf(),
-    val charactersObjectList: MutableList<Character> = mutableListOf()
+    val charactersObjectList: MutableList<Character> = mutableListOf(),
+    val fabledCharacterList: MutableList<FabledCharacter> = mutableListOf()
 )

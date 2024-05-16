@@ -5,6 +5,7 @@ import android.util.Log
 import com.example.twoforyou_botc_script_builder.data.db.local.ScriptDao
 import com.example.twoforyou_botc_script_builder.data.db.remote.FirebaseCharacterDatabase
 import com.example.twoforyou_botc_script_builder.data.model.Character
+import com.example.twoforyou_botc_script_builder.data.model.FabledCharacter
 import com.example.twoforyou_botc_script_builder.data.model.Script
 import com.example.twoforyou_botc_script_builder.data.model.getEnglishName
 import com.example.twoforyou_botc_script_builder.data.model.helper.Script_General_Info
@@ -39,17 +40,18 @@ class ScriptListRepositoryImpl @Inject constructor(
 
         val characterMutableList = mutableListOf<String>()
         val charactersObjectList = mutableListOf<Character>()
-
-
+        val fabledCharactersObjectList = mutableListOf<FabledCharacter>()
 
         for (i in 3 until modifiedJsonStringArray.size) {
             val trimmedString = modifiedJsonStringArray[i].replace("_", "").replace("-","").trim()
             Log.d(TAG, "jsonStringToScriptFromScriptWebsite: ${trimmedString}")
             characterMutableList.add(trimmedString)
-            charactersObjectList.add(getCharacterByName(trimmedString)!!)
+            getCharacterByName(trimmedString)?.let {
+                charactersObjectList.add(getCharacterByName(trimmedString)!!)
+            } ?: fabledCharactersObjectList.add(getFabledCharacterByName(trimmedString)!!)
         }
 
-        val script = Script(0, scriptGeneralInfo, characterMutableList, charactersObjectList)
+        val script = Script(0, scriptGeneralInfo, characterMutableList, charactersObjectList, fabledCharactersObjectList)
 
         return script
 
@@ -62,14 +64,18 @@ class ScriptListRepositoryImpl @Inject constructor(
         val characterMutableList = mutableListOf<String>()
         val charactersObjectList = mutableListOf<Character>()
 
+        val fabledCharactersObjectList = mutableListOf<FabledCharacter>()
+
         for (element in modifiedJsonStringArray) {
             val elementTrimmed = element.replace("_", "").replace("-","").trim()
             Log.d("TAG", "jsonStringToScriptFromAzureWebsite: $elementTrimmed")
             characterMutableList.add(elementTrimmed)
-            charactersObjectList.add(getCharacterByName(elementTrimmed)!!)
+            getCharacterByName(elementTrimmed)?.let {
+                charactersObjectList.add(getCharacterByName(elementTrimmed)!!)
+            } ?: fabledCharactersObjectList.add(getFabledCharacterByName(elementTrimmed)!!)
         }
 
-        val script = Script(0, scriptGeneralInfo, characterMutableList, charactersObjectList)
+        val script = Script(0, scriptGeneralInfo, characterMutableList, charactersObjectList, fabledCharactersObjectList)
         return script
     }
 
@@ -96,6 +102,15 @@ class ScriptListRepositoryImpl @Inject constructor(
     override fun getCharacterByName(name: String) : Character? {
         firebaseCharacterDatabase.characterList.value.forEach {
             Log.d(TAG, "getCharacterByName: ${it.getEnglishName()}")
+            if (it.getEnglishName().equals(name.trim(), ignoreCase = true)) {
+                return it
+            }
+        }
+        return null
+    }
+
+    override fun getFabledCharacterByName(name: String): FabledCharacter? {
+        firebaseCharacterDatabase.fabledCharacterList.value.forEach {
             if (it.getEnglishName().equals(name.trim(), ignoreCase = true)) {
                 return it
             }

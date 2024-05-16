@@ -2,6 +2,7 @@ package com.example.twoforyou_botc_script_builder.data.db.remote
 
 import android.util.Log
 import com.example.twoforyou_botc_script_builder.data.model.Character
+import com.example.twoforyou_botc_script_builder.data.model.FabledCharacter
 import com.example.twoforyou_botc_script_builder.data.model.helper.Character_Type
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.ktx.firestore
@@ -14,9 +15,13 @@ class FirebaseCharacterDatabase {
     private val _characterList = MutableStateFlow<List<Character>>(emptyList())
     val characterList = _characterList.asStateFlow()
     private lateinit var character: Character
+    private val _fabledCharacterList = MutableStateFlow<List<FabledCharacter>>(emptyList())
+    val fabledCharacterList = _fabledCharacterList.asStateFlow()
+    private lateinit var fabledCharacter: FabledCharacter
 
     init {
         getAllCharacters()
+        getAllFabledCharacters()
     }
 
     private fun getAllCharacters() {
@@ -40,6 +45,20 @@ class FirebaseCharacterDatabase {
 
         }
 
+    }
+
+    private fun getAllFabledCharacters() {
+        val dbRef = FirebaseDatabase.getInstance().reference.child("Fabled")
+
+        dbRef.get().addOnSuccessListener { dataSnapshot ->
+            for (fabledCharacterDataSnapshot in dataSnapshot.children) {
+                fabledCharacter = fabledCharacterDataSnapshot.getValue(FabledCharacter::class.java)!!
+                _fabledCharacterList.value += fabledCharacter
+            }
+
+        }.addOnFailureListener {
+            Log.e("firebase", "Error getting data", it)
+        }
     }
 
     companion object {

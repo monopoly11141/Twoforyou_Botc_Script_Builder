@@ -5,16 +5,18 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.twoforyou_botc_script_builder.data.db.helper.CharacterListConverter
 import com.example.twoforyou_botc_script_builder.data.db.helper.CharactersObjectListConverter
+import com.example.twoforyou_botc_script_builder.data.db.helper.FabledCharactersObjectListConverter
 import com.example.twoforyou_botc_script_builder.data.model.Script
 
 @Database(
     entities = [Script::class],
-    version = 1,
-    exportSchema = false
+    version = 3,
+    exportSchema = false,
 )
 @TypeConverters(
     CharacterListConverter::class,
-    CharactersObjectListConverter::class
+    CharactersObjectListConverter::class,
+    FabledCharactersObjectListConverter::class
 )
 abstract class ScriptDb : RoomDatabase() {
     abstract val scriptDao: ScriptDao

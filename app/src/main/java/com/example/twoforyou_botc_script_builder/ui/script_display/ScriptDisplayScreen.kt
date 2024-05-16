@@ -1,6 +1,7 @@
 package com.example.twoforyou_botc_script_builder.ui.script_display
 
 import AutoSizeText
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Paint
@@ -38,6 +39,7 @@ import com.example.twoforyou_botc_script_builder.data.model.getKoreanName
 import com.example.twoforyou_botc_script_builder.data.model.helper.Character_Type
 import com.example.twoforyou_botc_script_builder.ui.script_display.composable.CharacterItem
 import com.example.twoforyou_botc_script_builder.ui.theme.Demon_Color
+import com.example.twoforyou_botc_script_builder.ui.theme.Fabled_Color
 import com.example.twoforyou_botc_script_builder.ui.theme.Minion_Color
 import com.example.twoforyou_botc_script_builder.ui.theme.Outsider_Color
 import com.example.twoforyou_botc_script_builder.ui.theme.Townsfolk_Color
@@ -75,6 +77,16 @@ fun ScriptDisplayScreen(
             items(script.charactersObjectList) { character ->
                 CharacterItem(
                     character = character
+                )
+
+                HorizontalDivider(
+                    thickness = 1.dp,
+                    color = Color.Black
+                )
+            }
+            items(script.fabledCharacterList) { fabledCharacter ->
+                FabledCharacterItem(
+                    character = fabledCharacter
                 )
 
                 HorizontalDivider(
@@ -137,10 +149,9 @@ fun generatePdf(
         startingYValue,
         titlePaint
     )
-
+    val characterTypePaint = Paint()
     val characterTypeColorArray = intArrayOf(Townsfolk_Color.toArgb(), Outsider_Color.toArgb(), Minion_Color.toArgb(), Demon_Color.toArgb())
     for(i in characterTypeColorArray.indices) {
-        val characterTypePaint = Paint()
         characterTypePaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL))
         characterTypePaint.textSize = 8F
         characterTypePaint.setColor(characterTypeColorArray[i])
@@ -163,10 +174,26 @@ fun generatePdf(
         }
 
     }
+    characterTypePaint.color = Color.Black.toArgb()
 
+    canvas.drawText(
+        "* = 첫 밤 제외",
+        pageWidth - 45f,
+        10f,
+        characterTypePaint
+    )
+
+    characterTypePaint.color = Fabled_Color.toArgb()
+
+    canvas.drawText(
+        "우화Fabled",
+        pageWidth - 40f,
+        10f + 10f,
+        characterTypePaint
+    )
 
     var currentYPosition = 10f
-    val incrementY = (pageHeight - startingYValue) / (script.charactersObjectList.size + 1)
+    val incrementY = (pageHeight - startingYValue) / (script.charactersObjectList.size + script.fabledCharacterList.size + 1)
 
     for (character in script.charactersObjectList) {
 
@@ -246,7 +273,6 @@ fun generatePdf(
         characterImagePaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL))
         val characterImageXValue = 10f
         val characterImageSize = 40
-
         val bitmap =
             viewModel.saveImageUrlToLocalMachine(character.name, character.imageUrl, context)
         val mutableBitmap =
@@ -260,6 +286,84 @@ fun generatePdf(
         )
 
     }
+
+    for(fabledCharacter in script.fabledCharacterList) {
+
+
+        val characterTextPaint = Paint()
+        characterTextPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL))
+        val characterTextSize = 12f
+        characterTextPaint.textSize = characterTextSize
+        characterTextPaint.color = Fabled_Color.toArgb()
+        val characterNameXValue = 50f
+
+        val characterAbilityTextPaint = Paint()
+        characterAbilityTextPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL))
+        val characterAbilityTextSize = 9f
+        characterAbilityTextPaint.color = Fabled_Color.toArgb()
+        characterAbilityTextPaint.textSize = characterAbilityTextSize
+        val characterAbilityTextXValue = 160f
+
+        canvas.drawLine(
+            0f,
+            currentYPosition + 2 * (characterAbilityTextSize + 1),
+            pageWidth.toFloat(),
+            currentYPosition + 2 * (characterAbilityTextSize + 1) + 1,
+            characterTextPaint
+        )
+
+        currentYPosition += incrementY
+
+        val characterKoreanText = "${fabledCharacter.getKoreanName()}"
+        val characterEnglishText = "${fabledCharacter.getEnglishName()}"
+        canvas.drawText(
+            characterKoreanText,
+            characterNameXValue,
+            currentYPosition,
+            characterTextPaint
+        )
+
+        canvas.drawText(
+            characterEnglishText,
+            characterNameXValue,
+            currentYPosition + characterTextSize.toInt(),
+            characterTextPaint
+        )
+
+
+        val characterAbilityText = fabledCharacter.ability
+        var currentPosition = currentYPosition
+        val characterAbilityTextSplitArray = characterAbilityText.split("\\n")
+        for (characterAbilitySplitString in characterAbilityTextSplitArray) {
+            canvas.drawText(
+                characterAbilitySplitString,
+                characterAbilityTextXValue,
+                currentPosition,
+                characterAbilityTextPaint
+            )
+            currentPosition += characterAbilityTextSize + 1
+        }
+
+        val fabledCharacterImagePaint = Paint()
+        fabledCharacterImagePaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL))
+        val fabledCharacterImageXValue = 10f
+        val fabledCharacterImageSize = 40
+
+        Log.d(TAG, "generatePdf: name: ${fabledCharacter.name}, imageUrl: ${fabledCharacter.imageUrl}")
+
+        val bitmap =
+            viewModel.saveImageUrlToLocalMachine(fabledCharacter.name, fabledCharacter.imageUrl, context)
+        val mutableBitmap =
+            Bitmap.createScaledBitmap(bitmap, fabledCharacterImageSize, fabledCharacterImageSize, true)
+
+        canvas.drawBitmap(
+            mutableBitmap,
+            fabledCharacterImageXValue,
+            currentYPosition - (fabledCharacterImageSize / 2),
+            fabledCharacterImagePaint
+        )
+    }
+
     pdfDocument.finishPage(pdfDocumentPage)
 
     val childForPdfFile = "${
