@@ -138,6 +138,33 @@ fun generatePdf(
         titlePaint
     )
 
+    val characterTypeColorArray = intArrayOf(Townsfolk_Color.toArgb(), Outsider_Color.toArgb(), Minion_Color.toArgb(), Demon_Color.toArgb())
+    for(i in characterTypeColorArray.indices) {
+        val characterTypePaint = Paint()
+        characterTypePaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL))
+        characterTypePaint.textSize = 8F
+        characterTypePaint.setColor(characterTypeColorArray[i])
+        val characterTypeString = Character_Type.entries[i].toString()
+        // {0, 1, 2, 3}
+        if(i % 2 == 0) { //0, 2
+            canvas.drawText(
+                characterTypeString.replace("_", ""),
+                5f + (i / 2) * 80,
+                10f,
+                characterTypePaint
+            )
+        }else { //1, 3
+            canvas.drawText(
+                characterTypeString.replace("_", ""),
+                5f + (i / 2) * 80,
+                10f + 10f,
+                characterTypePaint
+            )
+        }
+
+    }
+
+
     var currentYPosition = 10f
     val incrementY = (pageHeight - startingYValue) / (script.charactersObjectList.size + 1)
 
