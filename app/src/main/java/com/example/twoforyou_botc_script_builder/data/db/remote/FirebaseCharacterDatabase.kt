@@ -43,6 +43,6 @@ class FirebaseCharacterDatabase {
     }
 
     companion object {
-        val LISTOFSCRIPTS = listOf("TroubleBrewing", "BadMoonRising", "SectsAndViolets")
+        val LISTOFSCRIPTS = listOf("TroubleBrewing", "BadMoonRising", "SectsAndViolets", "Experimental")
     }
 }

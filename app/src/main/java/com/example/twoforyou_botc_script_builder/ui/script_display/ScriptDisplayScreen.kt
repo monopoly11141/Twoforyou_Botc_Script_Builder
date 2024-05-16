@@ -3,8 +3,11 @@ package com.example.twoforyou_botc_script_builder.ui.script_display
 import AutoSizeText
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.BitmapFactory
+import android.graphics.Paint
+import android.graphics.Typeface
+import android.graphics.pdf.PdfDocument
 import android.os.Environment
+import android.util.Log
 import android.widget.Toast
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -24,22 +27,22 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.twoforyou_botc_script_builder.data.model.Script
+import com.example.twoforyou_botc_script_builder.data.model.getEnglishName
+import com.example.twoforyou_botc_script_builder.data.model.getKoreanName
+import com.example.twoforyou_botc_script_builder.data.model.helper.Character_Type
 import com.example.twoforyou_botc_script_builder.ui.script_display.composable.CharacterItem
-import com.itextpdf.io.image.ImageDataFactory
-import com.itextpdf.kernel.geom.PageSize
-import com.itextpdf.kernel.pdf.PdfDocument
-import com.itextpdf.kernel.pdf.PdfWriter
-import com.itextpdf.layout.Document
-import com.itextpdf.layout.element.Image
-import com.itextpdf.layout.element.Paragraph
-import java.io.ByteArrayOutputStream
+import com.example.twoforyou_botc_script_builder.ui.theme.Demon_Color
+import com.example.twoforyou_botc_script_builder.ui.theme.Minion_Color
+import com.example.twoforyou_botc_script_builder.ui.theme.Outsider_Color
+import com.example.twoforyou_botc_script_builder.ui.theme.Townsfolk_Color
 import java.io.File
-import java.net.URL
+import java.io.FileOutputStream
 
 
 @Composable
@@ -97,130 +100,141 @@ fun ScriptDisplayScreen(
     }
 
     if (isGeneratePdf) {
-        createPdf(script, context)
+        generatePdf(script, context, viewModel)
 
         isGeneratePdf = false
     }
 
 
 }
-//
-//@Composable
-//fun GeneratePdf(
-//    script: Script,
-//    context: Context,
-//    viewModel: ScriptDisplayViewModel = hiltViewModel()
-//) {
-//
-//
-//
-//
-//
-//
-//    //A4 Size
-//    val pageWidth = 595
-//    val pageHeight = 842
-//    val startingYValue = 20f
-//    val characterNameXValue = 20f
-//    val characterImageXValue = 300f
-//
-//    val pdfDocument = PdfDocument()
-//    val pdfDocumentPageInfo = PdfDocument.PageInfo.Builder(pageWidth, pageHeight, 1).create()
-//    val pdfDocumentPage = pdfDocument.startPage(pdfDocumentPageInfo)
-//
-//    val canvas = pdfDocumentPage.canvas
-//
-//    val titlePaint = Paint()
-//    titlePaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL))
-//    titlePaint.textSize = 24F
-//    titlePaint.setColor(Color.Black.toArgb())
-//    titlePaint.textAlign = Paint.Align.CENTER
-//    val titleText = "${script.scriptGeneralInfo?.name} by ${script.scriptGeneralInfo?.author}"
-//
-//    canvas.drawText(
-//        titleText,
-//        pageWidth / 2f,
-//        startingYValue,
-//        titlePaint
-//    )
-//
-//    var currentYPosition = 20f
-//    val incrementX = (pageHeight - startingYValue) / (script.charactersObjectList.size + 2)
-//
-//    for (character in script.charactersObjectList) {
-//        currentYPosition += incrementX
-//
-//        val characterTextPaint = Paint()
-//        characterTextPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL))
-//        characterTextPaint.textSize = 14F
-//        when (character.characterType) {
-//            Character_Type.마을주민_TOWNSFOLK -> {
-//                characterTextPaint.color = Color.Blue.toArgb()
-//            }
-//
-//            Character_Type.외부인_OUTSIDER -> {
-//                characterTextPaint.color = SkyBlue.toArgb()
-//            }
-//
-//            Character_Type.하수인_MINION -> {
-//                characterTextPaint.color = Pink.toArgb()
-//            }
-//
-//            Character_Type.악마_DEMON -> {
-//                characterTextPaint.color = Color.Red.toArgb()
-//            }
-//        }
-//
-//
-//        val characterText = "${character.getKoreanName()}${character.getEnglishName()}"
-//        canvas.drawText(
-//            characterText,
-//            characterNameXValue,
-//            currentYPosition,
-//            characterTextPaint
-//        )
-//
-//        val characterImagePaint = Paint()
-//
-//    }
-//
-//
-//    pdfDocument.finishPage(pdfDocumentPage)
-//
-//
-//    val pdfFile =
-//        File(
-//            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath,
-//            childForPdfFile
-//        )
-//
-//    try {
-//        pdfDocument.writeTo(FileOutputStream(pdfFile))
-//
-//        Toast.makeText(context, "pdf파일 만들기 성공", Toast.LENGTH_SHORT).show()
-//    } catch (e: Exception) {
-//        e.printStackTrace()
-//
-//        Toast.makeText(context, "pdf파일 만들기 실패", Toast.LENGTH_SHORT)
-//            .show()
-//    }
-//
-//    pdfDocument.close()
-//
-//}
-//
-//fun drawableToBitmap(drawable: Drawable): Bitmap? {
-//    if (drawable is BitmapDrawable) {
-//        return drawable.bitmap
-//    }
-//    val bitmap = Bitmap.createBitmap(drawable.intrinsicWidth, drawable.intrinsicHeight, Bitmap.Config.ARGB_8888)
-//    val canvas = Canvas(bitmap)
-//    drawable.setBounds(0, 0, canvas.width, canvas.height)
-//    drawable.draw(canvas)
-//    return bitmap
-//}
 
-private fun createPdf(script: Script, context: Context) {
+fun generatePdf(
+    script: Script,
+    context: Context,
+    viewModel: ScriptDisplayViewModel
+) {
+    //A4 Size
+    val pageWidth = 595
+    val pageHeight = 842
+    val startingYValue = 20f
+
+    val pdfDocument = PdfDocument()
+    val pdfDocumentPageInfo = PdfDocument.PageInfo.Builder(pageWidth, pageHeight, 1).create()
+    val pdfDocumentPage = pdfDocument.startPage(pdfDocumentPageInfo)
+
+    val canvas = pdfDocumentPage.canvas
+
+    val titlePaint = Paint()
+    titlePaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL))
+    titlePaint.textSize = 18F
+    titlePaint.setColor(Color.Black.toArgb())
+    titlePaint.textAlign = Paint.Align.CENTER
+    val titleText = "${script.scriptGeneralInfo?.name} by ${script.scriptGeneralInfo?.author}"
+
+    canvas.drawText(
+        titleText,
+        pageWidth / 2f,
+        startingYValue,
+        titlePaint
+    )
+
+    var currentYPosition = 10f
+    val incrementY = (pageHeight - startingYValue) / (script.charactersObjectList.size + 1)
+
+    for (character in script.charactersObjectList) {
+
+        val characterTextPaint = Paint()
+        characterTextPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL))
+        val characterTextSize = 12f
+        characterTextPaint.textSize = characterTextSize
+        val characterNameXValue = 50f
+
+        val characterAbilityTextPaint = Paint()
+        characterAbilityTextPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL))
+        val characterAbilityTextSize = 9f
+        characterAbilityTextPaint.textSize = characterAbilityTextSize
+        val characterAbilityTextXValue = 160f
+
+        when (character.characterType) {
+            Character_Type.마을주민_TOWNSFOLK -> {
+                characterTextPaint.color = Townsfolk_Color.toArgb()
+                characterAbilityTextPaint.color = Townsfolk_Color.toArgb()
+            }
+
+            Character_Type.외부인_OUTSIDER -> {
+                characterTextPaint.color = Outsider_Color.toArgb()
+                characterAbilityTextPaint.color = Outsider_Color.toArgb()
+            }
+
+            Character_Type.하수인_MINION -> {
+                characterTextPaint.color = Minion_Color.toArgb()
+                characterAbilityTextPaint.color = Minion_Color.toArgb()
+            }
+
+            Character_Type.악마_DEMON -> {
+                characterTextPaint.color = Demon_Color.toArgb()
+                characterAbilityTextPaint.color = Demon_Color.toArgb()
+            }
+        }
+        canvas.drawLine(
+            0f,
+            currentYPosition + 2 * (characterAbilityTextSize + 1),
+            pageWidth.toFloat(),
+            currentYPosition + 2 * (characterAbilityTextSize + 1) + 1,
+            characterTextPaint
+        )
+
+        currentYPosition += incrementY
+
+        val characterKoreanText = "${character.getKoreanName()}"
+        val characterEnglishText = "${character.getEnglishName()}"
+        canvas.drawText(
+            characterKoreanText,
+            characterNameXValue,
+            currentYPosition,
+            characterTextPaint
+        )
+
+        canvas.drawText(
+            characterEnglishText,
+            characterNameXValue,
+            currentYPosition + characterTextSize.toInt(),
+            characterTextPaint
+        )
+
+        val characterAbilityText = character.ability
+        var currentPosition = currentYPosition
+        val characterAbilityTextSplitArray = characterAbilityText.split("\\n")
+        for (characterAbilitySplitString in characterAbilityTextSplitArray) {
+            canvas.drawText(
+                characterAbilitySplitString,
+                characterAbilityTextXValue,
+                currentPosition,
+                characterAbilityTextPaint
+            )
+            currentPosition += characterAbilityTextSize + 1
+        }
+
+        val characterImagePaint = Paint()
+        characterImagePaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL))
+        val characterImageXValue = 10f
+        val characterImageSize = 40
+
+        val bitmap =
+            viewModel.saveImageUrlToLocalMachine(character.name, character.imageUrl, context)
+        val mutableBitmap =
+            Bitmap.createScaledBitmap(bitmap, characterImageSize, characterImageSize, true)
+
+        canvas.drawBitmap(
+            mutableBitmap,
+            characterImageXValue,
+            currentYPosition - (characterImageSize / 2),
+            characterImagePaint
+        )
+
+    }
+    pdfDocument.finishPage(pdfDocumentPage)
+
     val childForPdfFile = "${
         script.scriptGeneralInfo?.name
             ?.replace(" ", "_")
@@ -228,32 +242,25 @@ private fun createPdf(script: Script, context: Context) {
             ?.replace("\t", "")
             ?.replace("\n", "")
     }.pdf"
+    val pdfFile =
+        File(
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath,
+            childForPdfFile
+        )
 
-    val outputFile = File(
-        Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath,
-        childForPdfFile)
-    val pdfWriter = PdfWriter(outputFile)
-    val pdfDocument = PdfDocument(pdfWriter)
-    val document = Document(pdfDocument, PageSize.A4)
-    pdfDocument.addNewPage()
+    try {
+        pdfDocument.writeTo(FileOutputStream(pdfFile))
 
-    document.add(
-        Paragraph("Hello World")
-    )
-    val url = URL(script.charactersObjectList[0].imageUrl)
-    val connection = url.openConnection()
-    val stream = connection.getInputStream()
-    val bitmap = BitmapFactory.decodeStream(stream)
-    val outputStream = ByteArrayOutputStream()
-    bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream)
-    val byteArray = outputStream.toByteArray()
-    val image =  BitmapFactory.decodeByteArray(byteArray, 0, byteArray.size)
-    val image2 = ImageDataFactory.create(script.charactersObjectList[0].imageUrl)
-    val imag2e= Image(image2)
-    document.add(imag2e)
+        Toast.makeText(context, "pdf파일 만들기 성공", Toast.LENGTH_SHORT).show()
+        Log.d("TAG", "generatePdf: Successfully made pdf")
+    } catch (e: Exception) {
+        e.printStackTrace()
 
-    Toast.makeText(context, "pdf파일 만들기 성공", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "pdf파일 만들기 실패", Toast.LENGTH_SHORT)
+            .show()
+    }
 
     pdfDocument.close()
 
 }
+

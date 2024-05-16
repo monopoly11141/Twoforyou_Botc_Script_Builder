@@ -1,33 +1,42 @@
 package com.example.twoforyou_botc_script_builder.ui.script_display
 
+import android.app.Application
 import android.content.Context
 import android.graphics.Bitmap
-import android.graphics.drawable.BitmapDrawable
+import android.graphics.BitmapFactory
+import android.os.Environment
+import android.os.Handler
+import android.os.Looper
+import android.os.StrictMode
+import android.os.StrictMode.ThreadPolicy
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import coil.ImageLoader
-import coil.request.ErrorResult
-import coil.request.ImageRequest
-import coil.request.SuccessResult
 import com.example.twoforyou_botc_script_builder.data.model.Script
 import com.example.twoforyou_botc_script_builder.domain.script_display.ScriptDisplayRepository
 import com.example.twoforyou_botc_script_builder.ui.script_list.ScriptListUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.launch
+import java.io.BufferedInputStream
+import java.io.File
+import java.io.FileOutputStream
+import java.io.IOException
+import java.io.InputStream
+import java.io.OutputStream
+import java.net.HttpURLConnection
+import java.net.URL
+import java.util.concurrent.Executors
 import javax.inject.Inject
 
 
 @HiltViewModel
 class ScriptDisplayViewModel @Inject constructor(
-    private val repository: ScriptDisplayRepository
+    private val repository: ScriptDisplayRepository,
+    private val application: Application,
 ) : ViewModel() {
 
     private lateinit var script: Script
@@ -57,34 +66,57 @@ class ScriptDisplayViewModel @Inject constructor(
         return script
     }
 
-    fun urlToBitmap(
-        scope: CoroutineScope,
-        imageURL: String,
-        context: Context,
-        onSuccess: (bitmap: Bitmap) -> Unit,
-        onError: (error: Throwable) -> Unit
-    ) {
+    fun saveImageUrlToLocalMachine(name: String, urlString: String, context: Context) : Bitmap {
         var bitmap: Bitmap? = null
-        val loadBitmap = scope.launch(Dispatchers.IO) {
-            val loader = ImageLoader(context)
-            val request = ImageRequest.Builder(context)
-                .data(imageURL)
-                .allowHardware(false)
-                .build()
-            val result = loader.execute(request)
-            if (result is SuccessResult) {
-                bitmap = (result.drawable as BitmapDrawable).bitmap
-            } else if (result is ErrorResult) {
-                cancel(result.throwable.localizedMessage ?: "ErrorResult", result.throwable)
+        val executorService = Executors.newSingleThreadExecutor()
+        val handler = Handler(Looper.getMainLooper())
+
+
+        bitmap = loadImage(urlString, context)
+        handler.post {
+            bitmap?.let {
+                saveImageToStorage(it, name, context)
             }
         }
-        loadBitmap.invokeOnCompletion { throwable ->
-            bitmap?.let {
-                onSuccess(it)
-            } ?: throwable?.let {
-                onError(it)
-            } ?: onError(Throwable("Undefined Error"))
-        }
+        return bitmap!!
     }
 
+
+    // Function to establish connection and load image
+    private fun loadImage(urlString: String, context: Context): Bitmap? {
+        val policy = ThreadPolicy.Builder().permitAll().build()
+
+        StrictMode.setThreadPolicy(policy)
+
+        val url = URL(urlString)
+        val connection: HttpURLConnection?
+        try {
+            connection = url.openConnection() as HttpURLConnection
+            connection.connect()
+            val inputStream: InputStream = connection.inputStream
+            val bufferedInputStream = BufferedInputStream(inputStream)
+            val bitmap = BitmapFactory.decodeStream(bufferedInputStream)
+            return bitmap
+        } catch (e: IOException) {
+            e.printStackTrace()
+            Toast.makeText(context, "Error", Toast.LENGTH_LONG).show()
+        }
+        return null
+    }
+
+    private fun saveImageToStorage(bitmap: Bitmap, name: String, context: Context) {
+        val filename = "${name}.jpg"
+        var outputStream: OutputStream? = null
+
+        val fileDirectory =
+            Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES)
+        val image = File(fileDirectory, filename)
+        outputStream = FileOutputStream(image)
+
+        outputStream.use {
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
+        }
+    }
 }
+
+

@@ -14,7 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Twoforyou_Botc_Script_Builder"
         tools:targetApi="31"
-        android:name=".BotcScriptBuilderApp">
+        android:name=".BotcScriptBuilderApp"
+        android:enableOnBackInvokedCallback="true">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity
             android:name=".ui.MainActivity"
             android:exported="true"

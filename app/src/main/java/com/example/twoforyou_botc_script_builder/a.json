@@ -1,0 +1,694 @@
+{
+  "BadMoonRising": {
+    "마을주민_TOWNSFOLK": {
+      "객실_청소부Chambermaid": {
+        "ability": "[매일 밤] 본인을 제외한 살아있는 플레이어 2명을 선택합니다:\\n오늘 밤 자신의 능력 때문에 깨어난 해당 플레이어들의 숫자를 알게 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/8/87/Icon_chambermaid.png",
+        "name": "객실_청소부Chambermaid"
+      },
+      "교수Professor": {
+        "ability": "[게임당 1번] 밤에* 사망한 플레이어 1명을 선택합니다:\\n해당 플레이어가 마을주민이라면, 부활시킵니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/6/65/Icon_professor.png",
+        "name": "교수Professor"
+      },
+      "도박꾼Gambler": {
+        "ability": "[매일 밤*] 플레이어 1명과 캐릭터 1개를 선택합니다:\\n해당 플레이어가 해당 캐릭터가 아니라면, 당신은 사망합니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/f/fd/Icon_gambler.png",
+        "name": "도박꾼Gambler"
+      },
+      "바보Fool": {
+        "ability": "당신은 처음 사망할 때 죽지 않습니다.\\n능력이 사용됐더라도 이야기꾼은 바보에게 알려주지 않습니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/d/d9/Icon_fool.png",
+        "name": "바보Fool"
+      },
+      "신하Courtier": {
+        "ability": "[게임당 1번] 밤에 캐릭터 1개를 선택합니다:\\n해당 캐릭터의 플레이어는 (존재한다면) 3번의 밤과 3번의 낮 동안 취합니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/e/e0/Icon_courtier.png",
+        "name": "신하Courtier"
+      },
+      "여관주인Innkeeper": {
+        "ability": "[매일 밤*] 플레이어 2명을 선택합니다:\\n해당 플레이어들은 오늘 밤 죽지 않지만, 해당 플레이어 중 1명은 황혼까지 취합니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/0/0c/Icon_innkeeper.png",
+        "name": "여관주인Innkeeper"
+      },
+      "음악가Minstrel": {
+        "ability": "하수인이 처형으로 사망하면, 음악가를 제외한 (여행자 제외) 모든 플레이어는 내일 황혼까지 취합니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/2/24/Icon_minstrel.png",
+        "name": "음악가Minstrel"
+      },
+      "찻집_여인Tea_Lady": {
+        "ability": "당신 양쪽으로 가장 인접한 살아있는 플레이어 2명 모두 선팀일 경우, 해당 플레이어들은 죽지 않습니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/1/16/Icon_tealady.png",
+        "name": "찻집_여인Tea_Lady"
+      },
+      "퇴마사Exorcist": {
+        "ability": "[매일 밤*] 어제와 다른 플레이어 1명을 선택합니다:\\n악마를 선택했다면, 악마가 당신의 정체를 알게 됩니다.\\n이 경우, 악마는 오늘 밤 살해하지 못하며 깨어나지 않습니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/c/c2/Icon_exorcist.png",
+        "name": "퇴마사Exorcist"
+      },
+      "평화주의자Pacifist": {
+        "ability": "선팀 플레이어가 처형되면 사망하지 않을 수 있습니다. ",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/5/5d/Icon_pacifist.png",
+        "name": "평화주의자Pacifist"
+      },
+      "할머니Grandmother": {
+        "ability": "[첫 밤] 당신은 선팀 플레이어 1명과 그 캐릭터를 알고 게임을 시작합니다.\\n악마가 해당 플레이어를 살해하면, 당신 역시 사망합니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/2/26/Icon_grandmother.png",
+        "name": "할머니Grandmother"
+      },
+      "항해사Sailor": {
+        "ability": "당신은 죽지 않습니다.\\n[매일 밤] 살아있는 플레이어 1명을 선택합니다:\\n당신과 해당 플레이어 중 1명은 황혼까지 취합니다. ",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/1/16/Icon_sailor.png",
+        "name": "항해사Sailor"
+      },
+      "험담꾼Gossip": {
+        "ability": "[매일 낮] 공개적으로, 험담꾼이라고 선언하고 소문을 1개 퍼트립니다.\\n해당 소문이 사실이었다면, 오늘 밤 플레이어 1명이 죽습니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/c/c7/Icon_gossip.png",
+        "name": "험담꾼Gossip"
+      }
+    },
+    "악마_DEMON": {
+      "샤바로스Shabaloth": {
+        "ability": "[매일 밤*] [살해] 플레이어 2명을 선택합니다: 해당 플레이어들은 죽습니다.\\n어젯밤 선택했던 현재 죽은 플레이어 1명은 되살아날 수 있습니다. ",
+        "characterType": "악마_DEMON",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/1/1f/Icon_shabaloth.png",
+        "name": "샤바로스Shabaloth"
+      },
+      "좀뷸Zombuul": {
+        "ability": "[매일 밤*] [살해] 오늘 낮에 아무도 죽지 않았다면, 플레이어 1명을 선택합니다: 해당 플레이어는 죽습니다.\\n당신이 처음 사망하면, 살아있지만 죽은 것으로 취급됩니다.",
+        "characterType": "악마_DEMON",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/1/15/Icon_zombuul.png",
+        "name": "좀뷸Zombuul"
+      },
+      "포Po": {
+        "ability": "[매일 밤*] [살해] 플레이어 1명을 선택할 수 있습니다: 해당 플레이어는 죽습니다.\\n[살해] 지난 자발적인 선택이 플레이어를 선택하지 않는 거였다면, 이번 밤 플레이어 3명을 선택합니다:\\n해당 플레이어들은 죽습니다.",
+        "characterType": "악마_DEMON",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/b/b2/Icon_po.png",
+        "name": "포Po"
+      },
+      "퓨카Pukka": {
+        "ability": "[매일 밤] 플레이어 1명을 선택합니다: 해당 플레이어는 중독됩니다.\\n[살해] 이전에 퓨카가 중독시켰던 플레이어는 이번 밤에 사망한 후에 중독에서 풀립니다.",
+        "characterType": "악마_DEMON",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/f/f4/Icon_pukka.png",
+        "name": "퓨카Pukka"
+      }
+    },
+    "외부인_OUTSIDER": {
+      "달의_아이Moonchild": {
+        "ability": "당신이 죽었다는 사실을 알았을 때,\\n즉시 공개적으로, 달의 아이라고 선언하고 살아있는 플레이어 1명을 선택해야 합니다 (선택 전 논의가 가능합니다):\\n해당 플레이어가 선팀이라면, 오늘 밤에 죽습니다. ",
+        "characterType": "외부인_OUTSIDER",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/d/dc/Icon_moonchild.png",
+        "name": "달의_아이Moonchild"
+      },
+      "땜장이Tinker": {
+        "ability": "이야기꾼은 당신을 (죽을 수 있다면) 언제든 죽일 수 있습니다.",
+        "characterType": "외부인_OUTSIDER",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/9/98/Icon_tinker.png",
+        "name": "땜장이Tinker"
+      },
+      "미치광이Lunatic": {
+        "ability": "당신은 자신을 악마라고 생각하지만 실제로는 아닙니다.\\n악마는 당신이 누군지 알고 있으며, 밤에 누구를 선택하는지 알게 됩니다.",
+        "characterType": "외부인_OUTSIDER",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/6/64/Icon_lunatic.png",
+        "name": "미치광이Lunatic"
+      },
+      "폭력배Goon": {
+        "ability": "[매일 밤] 자신의 능력으로 폭력배를 선택한 1번째 플레이어는 그 즉시 다음 황혼까지 취합니다.\\n당신은 해당 플레이어의 팀이 됩니다.",
+        "characterType": "외부인_OUTSIDER",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/6/6f/Icon_goon.png",
+        "name": "폭력배Goon"
+      }
+    },
+    "하수인_MINION": {
+      "대부Godfather": {
+        "ability": "[첫 밤] 이번 게임에 어떤 외부인(들)이 존재하는지 알고 게임을 시작합니다.\\n그 중 1명이 오늘 낮에 죽었다면, 오늘 밤 플레이어 1명을 선택합니다: 해당 플레이어는 죽습니다.\\n[-1 마을주민 +1 외부인 또는 +1 마을주민 -1 외부인]",
+        "characterType": "하수인_MINION",
+        "formatChangingRole": true,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/d/d0/Icon_godfather.png",
+        "name": "대부Godfather"
+      },
+      "배후Mastermind": {
+        "ability": "악마가 처형으로 사망하여 게임이 끝나려 할 때, 하루만 더 게임을 이어나갑니다.\\n해당 하루 동안 처형된 플레이어가 있다면, 그 플레이어의 팀이 패배합니다.",
+        "characterType": "하수인_MINION",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/d/d5/Icon_mastermind.png",
+        "name": "배후Mastermind"
+      },
+      "악마추종자Devil's_Advocate": {
+        "ability": "[매일 밤] 어제와 다른 살아있는 플레이어 1명을 선택합니다:\\n내일 낮에 해당 플레이어가 처형될 경우, 죽지 않습니다.",
+        "characterType": "하수인_MINION",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/0/09/Icon_devilsadvocate.png",
+        "name": "악마추종자Devil's_Advocate"
+      },
+      "암살자Assassin": {
+        "ability": "[게임당 1번] 밤에*, 플레이어 1명을 선택합니다:\\n해당 플레이어는 다른 어떤 능력으로도 막을 수 없게 사망합니다. ",
+        "characterType": "하수인_MINION",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/4/49/Icon_assassin.png",
+        "name": "암살자Assassin"
+      }
+    }
+  },
+  "Experimental": {
+    "마을주민_TOWNSFOLK": {
+      "연금술사Alchemist": {
+        "ability": "당신은 시나리오에는 존재하지만 이번 게임에 존재하지 않는 하수인 능력을 가지고 있습니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/5/54/Icon_alchemist.png",
+        "name": "연금술사Alchemist"
+      },
+      "기억상실증_환자Amnesiac": {
+        "ability": "당신은 당신의 능력이 무엇인지 모릅니다.\n[매일 낮] 이야기꾼을 방문하여 사적으로 자신의 능력이 무엇일지 예측합니다:\\n당신의 실제 능력과 얼마나 가깝게 예측했는지 알게 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/2/26/Icon_amnesiac.png",
+        "name": "기억상실증_환자Amnesiac"
+      },
+      "무신론자Atheist": {
+        "ability": "이야기꾼은 규칙을 어길 수 있습니다.\\n이야기꾼이 처형당하면 선팀이 승리합니다. 당신이 사망한 후에도 마찬가지입니다.\\n악팀이 없습니다. [0 하수인, 0 악마, +N 마을주민, +N 외부인]",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": true,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/2/26/Icon_amnesiac.png",
+        "name": "무신론자Atheist"
+      },
+      "열기구_조종사Balloonist": {
+        "ability": "[매일 밤] 더 배울 캐릭터 분류(마을주민, 외부인, 하수인, 악마)가 없을 때까지,\\n이야기꾼은 열기구 조종사가 배우지 않았던 캐릭터 분류에 해당하는 플레이어 1명을 알려줍니다.\\n어떤 플레이어가 어떤 캐릭터 분류인지는 알지 못합니다. [-1 마을주민, +1 외부인]",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": true,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/c/cb/Icon_balloonist.png",
+        "name": "열기구_조종사Balloonist"
+      },
+      "밴시Banshee": {
+        "ability": "악마가 당신을 죽였을 경우, 모든 플레이어는 이것을 공개적으로 배웁니다.\\n지금부터, 당신은 2번 지목할 수 있으며 모든 지목마다 2번 투표할 수 있습니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/6/63/Icon_banshee.png",
+        "name": "밴시Banshee"
+      },
+      "현상금_사냥꾼Bounty_Hunter": {
+        "ability": "[첫 밤] 이야기꾼이 지목한 플레이어는 악팀입니다.\\n당신이 아는 플레이어가 죽었을 경우, 이번 밤 새로운 악팀 플레이어를 알게 됩니다.\\n[마을주민 중 1명은 악팀입니다.]",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": true,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/5/5b/Icon_bountyhunter.png",
+        "name": "현상금_사냥꾼Bounty_Hunter"
+      },
+      "식인종Cannibal": {
+        "ability": "당신은 최근에 처형되어 죽은 플레이어의 캐릭터 효과를 가집니다.\\n해당 플레이어가 악팀이라면, 당신은 다음 선팀 플레이어가 처형되어 죽을 때까지 중독됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/8/8e/Icon_cannibal.png",
+        "name": "식인종Cannibal"
+      },
+      "성가_대원Choirboy": {
+        "ability": "악마가 왕을 죽였을 경우, 당신은 누가 그 악마인지 배웁니다.\\n[+왕이 이미 없었을 경우, -1 마을주민, +1 왕]",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": true,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/d/d9/Icon_choirboy.png",
+        "name": "성가_대원Choirboy"
+      },
+      "교주Cult_Leader": {
+        "ability": "[매일 밤] 당신은 양쪽으로 가장 인접한 살아있는 플레이어 중 1명과 같은 팀이 됩니다.\\n[매일 낮] 공개적으로 선교 투표를 시작할 수 있습니다. 모든 선팀 플레이어가 찬성할 경우, 당신의 팀이 승리합니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/6/6c/Icon_cultleader.png",
+        "name": "교주Cult_Leader"
+      },
+      "엔지니어Engineer": {
+        "ability": "[게임당 1번] 밤에, 게임에 어떤 하수인(들) 또는 악마가 존재할지 정할 수 있습니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/b/b9/Icon_engineer.png",
+        "name": "엔지니어Engineer"
+      },
+      "농부Farmer": {
+        "ability": "당신이 밤에 사망하면 살아있는 선팀 플레이어 중 1명이 농부가 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/f/fe/Icon_farmer.png",
+        "name": "농부Farmer"
+      },
+      "어부Fisherman": {
+        "ability": "[게임당 1번] 낮에, 이야기꾼을 사적으로 방문하여 당신의 팀이 이길 수 있는 조언을 듣습니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/1/19/Icon_fisherman.png",
+        "name": "어부Fisherman"
+      },
+      "장군General": {
+        "ability": "[매일 밤] 이야기꾼이 생각하기에 어느 팀(선팀, 악팀, 비등하다)이 이기고 있는지 알게 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/9/99/Icon_general.png",
+        "name": "장군General"
+      },
+      "대사제High_Priestess": {
+        "ability": "[매일 밤] 이야기꾼이 생각하기에 당신이 어떤 플레이어와 가장 많이 얘기해야 하는지 알려줍니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/6/63/Icon_highpriestess.png",
+        "name": "대사제High_Priestess"
+      },
+      "사냥꾼Huntsman": {
+        "ability": "[게임당 1번] 밤에, 살아있는 플레이어 1명을 선택합니다:\\n마드모아젤을 선택한 경우, 마드모아젤은 이번 게임에 존재하지 않는 마을주민 캐릭터로 변합니다.\\n[마드모아젤이 이미 없었을 경우, -1 마을주민, +1 마드모아젤]",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": true,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/File:Icon_huntsman.png",
+        "name": "사냥꾼Huntsman"
+      },
+      "왕King": {
+        "ability": "[매일 밤] 죽은 플레이어 수가 살아있는 플레이어 수와 같거나 더 많다면, 당신은 살아있는 캐릭터 1개를 배웁니다.\\n누가 어떤 캐릭터인지는 알지 못합니다.\\n악마는 당신이 누구인지 알고 게임을 시작합니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/d/dc/Icon_king.png",
+        "name": "왕King"
+      },
+      "기사Knight": {
+        "ability": "[첫 밤] 당신은 악마가 아닌 플레이어 2명을 알고 게임을 시작합니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/8/8e/Icon_knight.png",
+        "name": "기사Knight"
+      },
+      "늑대인간Lycanthrope": {
+        "ability": "[매일 밤*] 살아있는 플레이어 1명을 선택합니다: 선팀이었다면, 죽습니다.\\n이렇게 죽을 경우, 이번 밤에 다른 플레이어는 죽지 않습니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/File:Icon_lycanthrope.png",
+        "name": "늑대인간Lycanthrope"
+      },
+      "마술사Magician": {
+        "ability": "악마는 당신을 추가로 하수인으로 생각합니다.\\n하수인(들)은 당신을 추가로 악마로 생각합니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/9/93/Icon_magician.png",
+        "name": "마술사Magician"
+      },
+      "야간_경비원Nightwatchman": {
+        "ability": "[게임당 1번] 밤에, 플레이어 1명을 선택합니다:\\n해당 플레이어는 당신의 캐릭터와 당신이 누구인지 알게 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/f/f0/Icon_nightwatchman.png",
+        "name": "야간_경비원Nightwatchman"
+      },
+      "귀족Noble": {
+        "ability": "[첫 밤] 이야기꾼이 지목한 플레이어 3명 중 정확히 1명이 악팀이라는 것을 알고 게임을 시작합니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/c/cc/Icon_noble.png",
+        "name": "귀족Noble"
+      },
+
+    }
+  },
+  "Fabled": {
+    "a": "a"
+  },
+  "SectsAndViolets": {
+    "마을주민_TOWNSFOLK": {
+      "꽃_파는_소녀Flowergirl": {
+        "ability": "[매일 밤*] 당신은 오늘 낮에 악마가 처형 투표 중에 투표했는지 (해당 투표의 결과와 상관없이) 알게 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/a/ac/Icon_flowergirl.png",
+        "name": "꽃_파는_소녀Flowergirl"
+      },
+      "몽상가Dreamer": {
+        "ability": "[매일 밤] 본인을 제외한 (여행자 제외) 플레이어 1명을 선택합니다:\\n이야기꾼이 당신에게 선팀 캐릭터 1개와 악팀 캐릭터 1개를 보여줍니다. 둘 중 하나가 해당 플레이어의 캐릭터입니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/f/f2/Icon_dreamer.png",
+        "name": "몽상가Dreamer"
+      },
+      "뱀부리미Snake_Charmer": {
+        "ability": "[매일 밤] 살아있는 플레이어 1명을 선택합니다:\\n 악마를 선택했다면, 당신과 그 악마는 서로 캐릭터와 팀을 교환합니다. 그다음 새로운 뱀부리미가 영원히 중독됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/0/08/Icon_snakecharmer.png",
+        "name": "뱀부리미Snake_Charmer"
+      },
+      "수학자Mathematician": {
+        "ability": "[매일 밤] 당신은 다른 캐릭터의 능력 때문에 능력이 오작동한 플레이어의 수를 알게 됩니다. (그날 새벽부터 지금까지).\\n수학자는 수학자의 능력 오작동은 감지하지 못합니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/f/f1/Icon_mathematician.png",
+        "name": "수학자Mathematician"
+      },
+      "시계제작자Clockmaker": {
+        "ability": "[첫 밤] 당신은 악마로부터 가장 가까운 하수인이 악마와 몇 칸 떨어져 있는지 알고 게임을 시작합니다.\\n(인접한다면 1칸)",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/3/3d/Icon_clockmaker.png",
+        "name": "시계제작자Clockmaker"
+      },
+      "예술가Artist": {
+        "ability": "[게임당 1번] 낮에, 이야기꾼에게 ‘예’ / ‘아니요’로 대답할 수 있는 질문 1개를 사적으로 물어봅니다.\\n이야기꾼은 질문에 대해 솔직하게 ‘예’ / ‘아니요’ / ‘잘 모르겠다’ 중의 하나로 대답합니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/1/1a/Icon_artist.png",
+        "name": "예술가Artist"
+      },
+      "예언자Oracle": {
+        "ability": "[매일 밤*] 당신은 사망한 플레이어 중 몇 명이 악팀인지 알게 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/b/bb/Icon_oracle.png",
+        "name": "예언자Oracle"
+      },
+      "재봉사Seamstress": {
+        "ability": "[게임당 1번] 밤에, 자신을 제외한 플레이어 2명을 선택합니다: \\n해당 플레이어들이 같은 팀인지 알게 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/5/53/Icon_seamstress.png",
+        "name": "재봉사Seamstress"
+      },
+      "저글러Juggler": {
+        "ability": "[첫 낮] 공개적으로, 저글러를 선언하고 5번까지 특정 플레이어와 특정 캐릭터를 선언할 수 있습니다. (예: 철수 - 저글러)\\n그날 밤, 당신은 그 중 몇 번을 올바르게 예측했는지 알게 됩니다. ",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/4/42/Icon_juggler.png",
+        "name": "저글러Juggler"
+      },
+      "철학자Philosopher": {
+        "ability": "[게임당 1번] 밤에, 선팀 캐릭터 1명을 선택합니다: 해당 능력을 지속적으로 얻습니다.\\n이미 존재하는 캐릭터면, 그 캐릭터의 플레이어는 지속적으로 취합니다.\\n철학자가 죽거나 취함/중독이 될 경우, 취한 그 캐릭터는 그동안 취함에서 풀립니다. ",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/5/5d/Icon_philosopher.png",
+        "name": "철학자Philosopher"
+      },
+      "포고_관리인Town_Crier": {
+        "ability": "[매일 밤*] 당신은 오늘 낮에 하수인이 처형 투표의 지목을 시작했는지를 (해당 투표의 결과와 상관없이) 알게 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/e/ef/Icon_towncrier.png",
+        "name": "포고_관리인Town_Crier"
+      },
+      "학자Savant": {
+        "ability": "[매일 낮] 이야기꾼을 사적으로 방문하여 2가지 정보를 얻습니다.\\n그 중 하나는 진실이고, 하나는 거짓입니다. 학자는 해당 효과를 사용하지 않아도 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/d/d5/Icon_savant.png",
+        "name": "학자Savant"
+      },
+      "현자Sage": {
+        "ability": "악마가 당신을 살해하면, 이야기꾼이 당신을 깨워서 플레이어 2명을 지목합니다:\\n2명 중 1명은 당신을 죽인 악마입니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/a/a0/Icon_sage.png",
+        "name": "현자Sage"
+      }
+    },
+    "악마_DEMON": {
+      "노_다시No_Dashii": {
+        "ability": "[매일 밤*] [살해] 플레이어 1명을 선택합니다: 해당 플레이어는 사망합니다.\\n당신 양쪽으로 가장 인접한 마을주민은 지속적으로 중독됩니다.\\n노 다시의 중독 효과는 플레이어들의 캐릭터가 변경됨으로써 대상이 바뀔 수 있습니다.",
+        "characterType": "악마_DEMON",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/e/eb/Icon_nodashii.png",
+        "name": "노_다시No_Dashii"
+      },
+      "보르톡스Vortox": {
+        "ability": "[매일 밤*] [살해] 플레이어 1명을 선택합니다: 해당 플레이어는 사망합니다.\\n마을주민이 얻는 정보는 항상 거짓입니다.\\n매일 낮, 아무도 처형되지 않았다면, 악팀이 승리합니다.",
+        "characterType": "악마_DEMON",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/8/89/Icon_vortox.png",
+        "name": "보르톡스Vortox"
+      },
+      "비고모티스Vigormortis": {
+        "ability": "[매일 밤*] [살해]플레이어 1명을 선택합니다: 해당 플레이어는 사망합니다.\\n비고모티스가 하수인을 살해하면, 해당 하수인은 능력을 잃지 않은 채 사망하고,\\n살해당한 하수인과 가장 가까이 인접한 마을주민 하나가 중독됩니다. [-1 외부인, +1 마을주민]",
+        "characterType": "악마_DEMON",
+        "formatChangingRole": true,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/1/1a/Icon_vigormortis.png",
+        "name": "비고모티스Vigormortis"
+      },
+      "팽_구Fang_Gu": {
+        "ability": "[매일 밤*] [살해] 플레이어 1명을 선택합니다: 해당 플레이어는 사망합니다.\\n[게임당 1번] 이렇게 외부인을 살해하려고 하면, 1번만, 해당 외부인이 악팀 팽 구가 되고, 당신이 대신 사망합니다.\\n[+1 외부인, -1 마을주민]",
+        "characterType": "악마_DEMON",
+        "formatChangingRole": true,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/0/0e/Icon_fanggu.png",
+        "name": "팽_구Fang_Gu"
+      }
+    },
+    "외부인_OUTSIDER": {
+      "돌연변이Mutant": {
+        "ability": "당신이 외부인이라는 사실에 미쳐있다면, 이야기꾼은 언제든지(밤이든 낮이든) 당신을 처형시킬 수 있습니다.\\n그날 낮에 처형이 있었더라도 저녁때 당신의 처형은 일어날 수 있습니다.",
+        "characterType": "외부인_OUTSIDER",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/2/2e/Icon_mutant.png",
+        "name": "돌연변이Mutant"
+      },
+      "얼뜨기Klutz": {
+        "ability": "당신이 죽었다는 사실을 알았을 때,\\n즉시 공개적으로, 얼뜨기라고 선언하고 살아있는 플레이어 1명을 선택해야 합니다(선택 전 논의가 가능합니다):\\n해당 플레이어가 악팀이라면, 당신의 팀이 패배합니다.",
+        "characterType": "외부인_OUTSIDER",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/b/bc/Icon_klutz.png",
+        "name": "얼뜨기Klutz"
+      },
+      "연인Sweetheart": {
+        "ability": "당신이 사망할 때, 플레이어 1명이 이제부터 취합니다.",
+        "characterType": "외부인_OUTSIDER",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/6/6a/Icon_sweetheart.png",
+        "name": "연인Sweetheart"
+      },
+      "이발사Barber": {
+        "ability": "당신이 오늘 낮 또는 밤에 사망했다면:\\n악마 1명은 (다른 악마를 제외한) 플레이어 2명을 선택해 서로의 캐릭터를 바꿀 수 있습니다.\\n서로의 팀은 바뀌지 않습니다. ",
+        "characterType": "외부인_OUTSIDER",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/1/16/Icon_barber.png",
+        "name": "이발사Barber"
+      }
+    },
+    "하수인_MINION": {
+      "곰보_할멈Pit-Hag": {
+        "ability": "[매일 밤*] 플레이어 1명과 캐릭터 1개를 선택합니다:\\n그 캐릭터가 이번 게임에 존재하지 않을 경우, 해당 플레이어는 해당 캐릭터로 변경됩니다. 팀은 바뀌지 않습니다. \\n이렇게 악마가 만들어졌다면, 오늘 밤 모든 죽음은 (누가 죽는 지와 몇 명이 죽는지) 이야기꾼이 결정합니다.",
+        "characterType": "하수인_MINION",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/6/6b/Icon_pithag.png",
+        "name": "곰보_할멈Pit-Hag"
+      },
+      "두뇌세뇌꾼Cerenovus": {
+        "ability": "[매일 밤] 플레이어 1명과 선팀 캐릭터 1개를 선택합니다(해당 플레이어는 해당 캐릭터를 알게 됩니다.):\\n해당 플레이어가 내일 해당 캐릭터라는 것에 미쳐있지 않으면, 이야기꾼은 해당 플레이어를 처형시킬 수 있습니다. ",
+        "characterType": "하수인_MINION",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/4/45/Icon_cerenovus.png",
+        "name": "두뇌세뇌꾼Cerenovus"
+      },
+      "마녀Witch": {
+        "ability": "[매일 밤] 플레이어 1명을 선택합니다:\\n해당 플레이어가 처형 투표의 지목을 시작했다면, 해당 플레이어는 죽습니다. (투표는 진행됩니다.)\\n살아있는 플레이어가 3명이라면 이 능력은 사라집니다.",
+        "characterType": "하수인_MINION",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/7/7b/Icon_witch.png",
+        "name": "마녀Witch"
+      },
+      "사악한_쌍둥이Evil_Twin": {
+        "ability": "[첫 밤] 상대 팀 플레이어 중 1명은 쌍둥이로 지정되며, 서로는 서로 쌍둥이인 것과 서로의 캐릭터를 항상 알게 됩니다.\\n선팀 쌍둥이가 처형되면, 악팀이 승리합니다. 쌍둥이 둘 다 살아있다면, 선팀은 승리할 수 없으며 게임이 계속됩니다.\\n선팀 쌍둥이와 악팀 쌍둥이만 살아있는 경우, 악팀이 승리합니다. ",
+        "characterType": "하수인_MINION",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/f/f4/Icon_eviltwin.png",
+        "name": "사악한_쌍둥이Evil_Twin"
+      }
+    }
+  },
+  "Travellers": {
+    "a": "a"
+  },
+  "TroubleBrewing": {
+    "마을주민_TOWNSFOLK": {
+      "공감인Empath": {
+        "ability": "[매일 밤] 당신 양쪽으로 가장 인접한 살아있는 플레이어 중 몇 명이 악팀인지 알게 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/1/13/Icon_empath.png",
+        "name": "공감인Empath"
+      },
+      "군인Soldier": {
+        "ability": "당신은 악마의 부정적인 능력(살해, 중독 등등)으로부터 안전합니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/c/c3/Icon_soldier.png",
+        "name": "군인Soldier"
+      },
+      "까마귀사육사Ravenkeeper": {
+        "ability": "당신이 밤에 사망하면 그 밤에 일어나 플레이어 1명을 선택합니다:\\n해당 플레이어의 캐릭터를 알게 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/e/ef/Icon_ravenkeeper.png",
+        "name": "까마귀사육사Ravenkeeper"
+      },
+      "사서Librarian": {
+        "ability": "[첫 밤] 이야기꾼이 지목한 플레이어 2명 중 1명이 특정 외부인이라는 것을 알고 게임을 시작합니다.\\n외부인이 없다면 0을 알게 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/e/e0/Icon_librarian.png",
+        "name": "사서Librarian"
+      },
+      "세탁부Washerwoman": {
+        "ability": "[첫 밤] 이야기꾼이 지목한 플레이어 2명 중 1명이 특정 마을주민이라는 것을 알고 게임을 시작합니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/8/85/Icon_washerwoman.png",
+        "name": "세탁부Washerwoman"
+      },
+      "수도승Monk": {
+        "ability": "[매일 밤*] 본인을 제외한 플레이어 1명을 선택합니다:\\n해당 플레이어는 오늘 밤 악마의 부정적인 능력(살해, 중독 등등)으로부터 안전합니다. ",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/7/7c/Icon_monk.png",
+        "name": "수도승Monk"
+      },
+      "시장Mayor": {
+        "ability": "살아있는 플레이어가 3명일 때 처형이 일어나지 않는다면 당신의 팀이 승리합니다.\\n당신이 저녁에 죽으려고 할 때, 이야기꾼은 대신 다른 플레이어를 죽일 수 있습니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/a/a1/Icon_mayor.png",
+        "name": "시장Mayor"
+      },
+      "아가씨Virgin": {
+        "ability": "당신이 처음으로 처형 투표로 지목될 때:\\n지목한 플레이어가 마을주민이라면 해당 마을주민이 처형되며 낮이 즉시 종료됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/d/d3/Icon_virgin.png",
+        "name": "아가씨Virgin"
+      },
+      "요리사Chef": {
+        "ability": "[첫 밤] 서로 인접해 앉아있는 악팀이 전체 몇 쌍인지 알게 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/d/d5/Icon_chef.png",
+        "name": "요리사Chef"
+      },
+      "장의사Undertaker": {
+        "ability": "[매일 밤*] 당신은 오늘 처형되어 죽은 플레이어의 캐릭터를 알게 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/0/05/Icon_undertaker.png",
+        "name": "장의사Undertaker"
+      },
+      "점쟁이FortuneTeller": {
+        "ability": "[매일 밤] 플레이어 2명을 지목합니다: 2명 중 악마가 있다면, “예”라는 대답을 얻습니다.\\n선팀 플레이어 중 1명은 당신에게 악마로 보입니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/c/c3/Icon_fortune_teller.png",
+        "name": "점쟁이FortuneTeller"
+      },
+      "조사자Investigator": {
+        "ability": "[첫 밤] 이야기꾼이 지목한 플레이어 2명 중 1명이 특정 하수인이라는 것을 알게 됩니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/a/ad/Icon_investigator.png",
+        "name": "조사자Investigator"
+      },
+      "처단자Slayer": {
+        "ability": "[게임당 1번] 낮에 공개적으로 처단자라고 선언하고 플레이어 1명을 선택합니다:\\n해당 플레이어가 악마라면, 그 플레이어는 사망합니다.",
+        "characterType": "마을주민_TOWNSFOLK",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/d/d3/Icon_slayer.png",
+        "name": "처단자Slayer"
+      }
+    },
+    "악마_DEMON": {
+      "임프_Imp": {
+        "ability": "[매일 밤*] [살해] 플레이어 1명을 선택합니다: 해당 플레이어는 사망합니다.\\n이 방법으로 당신 스스로 사망한다면 살아있는 하수인 중 1명이 임프가 됩니다.",
+        "characterType": "악마_DEMON",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/5/5c/Icon_imp.png",
+        "name": "임프_Imp"
+      }
+    },
+    "외부인_OUTSIDER": {
+      "성자Saint": {
+        "ability": "당신이 처형으로 사망하면 당신의 팀이 즉시 패배합니다.",
+        "characterType": "외부인_OUTSIDER",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/c/c9/Icon_saint.png",
+        "name": "성자Saint"
+      },
+      "은둔자Recluse": {
+        "ability": "당신은 다른 플레이어에게 악팀으로 보일 수 있으며, 특정 하수인이나 특정 악마로 보일 수 있습니다.\\n당신이 사망한 후에도 마찬가지입니다.",
+        "characterType": "외부인_OUTSIDER",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/6/60/Icon_recluse.png",
+        "name": "은둔자Recluse"
+      },
+      "집사Butler": {
+        "ability": "[매일 밤] 본인을 제외한 플레이어 1명을 선택합니다:\\n내일 낮, 당신은 처형 투표마다 해당 플레이어가 손을 들고 있거나 투표해야만 투표할 수 있습니다.",
+        "characterType": "외부인_OUTSIDER",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/1/19/Icon_butler.png",
+        "name": "집사Butler"
+      },
+      "취한_사람Drunk": {
+        "ability": "당신은 자신이 취한 사람인 것을 모릅니다.\\n당신은 자신을 마을주민이라고 알고 있지만 실제로는 아닙니다.",
+        "characterType": "외부인_OUTSIDER",
+        "formatChangingRole": true,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/4/4a/Icon_drunk.png",
+        "name": "취한_사람Drunk"
+      }
+    },
+    "하수인_MINION": {
+      "남작Baron": {
+        "ability": "외부인이 2명 추가됩니다.\\n[-2 마을주민, +2 외부인]",
+        "characterType": "하수인_MINION",
+        "formatChangingRole": true,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/6/6d/Icon_baron.png",
+        "name": "남작Baron"
+      },
+      "독약꾼Poisoner": {
+        "ability": "[매일 밤] 플레이어 1명을 선택합니다:\\n해당 플레이어는 오늘 밤과 내일 낮 동안 중독됩니다.",
+        "characterType": "하수인_MINION",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/b/b1/Icon_poisoner.png",
+        "name": "독약꾼Poisoner"
+      },
+      "스파이Spy": {
+        "ability": "[매일 밤] 당신은 마법서를 확인합니다.\\n당신은 다른 플레이어에게 선팀으로 보일 수 있으며, 특정 마을주민이나 특정 외부인으로 보일 수 있습니다.\\n당신이 사망한 후에도 마찬가지입니다.",
+        "characterType": "하수인_MINION",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/5/54/Icon_spy.png",
+        "name": "스파이Spy"
+      },
+      "진홍의_여인Scarlet_Woman": {
+        "ability": "(여행자를 제외한) 살아있는 플레이어가 5명 이상일 때 악마가 사망했다면:\\n당신은 그 악마가 됩니다.",
+        "characterType": "하수인_MINION",
+        "formatChangingRole": false,
+        "imageUrl": "https://wiki.bloodontheclocktower.com/images/5/54/Icon_scarlet_woman.png",
+        "name": "진홍의_여인Scarlet_Woman"
+      }
+    }
+  }
+}

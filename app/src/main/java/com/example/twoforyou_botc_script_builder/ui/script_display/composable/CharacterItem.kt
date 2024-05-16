@@ -63,7 +63,7 @@ fun CharacterItem(
         ) {
 
             AutoSizeText(
-                text = character.ability,
+                text = character.ability.replace("\\n", "\n"),
                 maxLines = 5
             )
 

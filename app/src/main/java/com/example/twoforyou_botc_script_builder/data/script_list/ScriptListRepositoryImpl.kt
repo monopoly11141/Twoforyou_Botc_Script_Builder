@@ -43,7 +43,7 @@ class ScriptListRepositoryImpl @Inject constructor(
 
 
         for (i in 3 until modifiedJsonStringArray.size) {
-            val trimmedString = modifiedJsonStringArray[i].replace("_", "").trim()
+            val trimmedString = modifiedJsonStringArray[i].replace("_", "").replace("-","").trim()
             Log.d(TAG, "jsonStringToScriptFromScriptWebsite: ${trimmedString}")
             characterMutableList.add(trimmedString)
             charactersObjectList.add(getCharacterByName(trimmedString)!!)
@@ -63,7 +63,7 @@ class ScriptListRepositoryImpl @Inject constructor(
         val charactersObjectList = mutableListOf<Character>()
 
         for (element in modifiedJsonStringArray) {
-            val elementTrimmed = element.replace("_", "").trim()
+            val elementTrimmed = element.replace("_", "").replace("-","").trim()
             Log.d("TAG", "jsonStringToScriptFromAzureWebsite: $elementTrimmed")
             characterMutableList.add(elementTrimmed)
             charactersObjectList.add(getCharacterByName(elementTrimmed)!!)
